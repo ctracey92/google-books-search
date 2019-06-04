@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 
 //Require all of the models
-const db = require("./models");
+const db = require("./client/models");
 
 
 // Use morgan logger for logging requests
