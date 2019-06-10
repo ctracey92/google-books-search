@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 
 //Require all of the models
-const db = require("./client/models");
+const db = require("./client/models/");
 
 
 // Use morgan logger for logging requests
@@ -30,9 +30,10 @@ app.get("/api/books", (req,res) => {
     console.log(data)
     if(err){console.log("Error getting saved books: ", err)}
   })
-});
+})
 
-app.post("/api/books",(req,res) =>{
+app.post("/api/books/post",(req,res) =>{
+  console.log("the route is hit****")
   db.Book.create(req.body)
   .catch((err)=>{res.json(err)})
 })
@@ -44,11 +45,12 @@ app.delete("/api/books/:id",(req,res)=>{
 })
 
 // Send every other request to the React app
+// If no API routes are hit, send the React app
+
 // Define any API routes before this runs
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
-});
+})

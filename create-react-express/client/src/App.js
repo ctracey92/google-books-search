@@ -14,9 +14,9 @@ function App() {
         <HashRouter>
             <div>
                 <Navbar />
-                <Route exact path="/" component={Search} />;
-                <Route exact path="/search" component={Search} />;
-                <Route exact path="/saved" component={Saved} />;
+                <Route exact path="/" component={Search} />
+                <Route exact path="/search" component={Search} />
+                <Route exact path="/saved" component={Saved} />
             </div>
         </HashRouter>
     )

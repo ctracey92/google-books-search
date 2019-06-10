@@ -5,9 +5,9 @@ import React from "react";
 export function Input(props) {
     return (
       <div className="form-group">
-        <input className="form-control" {...props} />
+        <input className="form-control" id="bookSearch" {...props} />
       </div>
-    );
+    )
   }
   
   export function FormBtn(props) {
@@ -15,5 +15,5 @@ export function Input(props) {
       <button {...props} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">
         {props.children}
       </button>
-    );
+    )
   }
