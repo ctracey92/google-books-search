@@ -6,5 +6,11 @@ export default {
     },
     saveBook: function(bookinfo) {
     return axios.post("/api/books/post", bookinfo);
-  }
+    },
+    getBooks: function(){
+      return axios.get("/api/books")
+    },
+    deleteBook: function(bookId){
+      return axios.delete("/api/books/" + bookId)
+    }
 };

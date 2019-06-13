@@ -26,10 +26,11 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 // Define API routes here
 
 app.get("/api/books", (req,res) => {
-  db.Book.find({},(err,data)=>{
-    console.log(data)
-    if(err){console.log("Error getting saved books: ", err)}
-  })
+  db.Book.find({},function(err, docs) {
+    if (!err){ 
+        res.json(docs)
+    } else {throw err;}
+});
 })
 
 app.post("/api/books/post",(req,res) =>{
